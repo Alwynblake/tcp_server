@@ -1,18 +1,12 @@
 'use strict';
 
-// const fs = require('fs');
-const net = require ('net');
-// const util= require('util');
-
+const net = require('net');
 const client = new net.Socket();
 
 client.connect(3001, 'localhost', () => {
-  console.log('App connected to host logger');
+  console.log('logger has connected');
 });
 
-client.on('data', (buffer) => {
-  console.log(buffer.toString());
+client.on('data', (data) => {
+  console.log(data);
 });
-// server.on('connection', (socket) => {
-//   socket.on('data', (buffer) => {
-//     console.log(buffer.toString());
